@@ -3,4 +3,10 @@
     <string name="btn_start">Start</string>
     <string name="btn_skip">Skip</string>
     <string name="btn_new">New</string>
+    <string name="part1">胸部肌群</string>
+    <string name="part2">背部肌群</string>
+    <string name="part3">腿部肌群</string>
+    <string name="part4">肩部肌群</string>
+    <string name="part5">腹部肌群</string>
+    <string name="part6">有氧訓練</string>
 </resources>

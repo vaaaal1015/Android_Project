@@ -6,10 +6,12 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 import android.widget.Toolbar;
 
 import java.util.ArrayList;
@@ -28,12 +30,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // 準備資料，塞50個項目到ArrayList裡
-        /*
-        for(int i = 0; i < 10; i++) {
-            mData.add("項目"+i);
-        }
-        */
+
         mData.add("胸部肌群");
         mData.add("背部肌群");
         mData.add("腿部肌群");
@@ -60,7 +57,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // 新增一個項目
-                adapter.addItem("New");
+                //adapter.addItem("New");
+                //intent.putExtra(, mData);
+                Intent intent = new Intent(MainActivity.this, ExerciseActivity.class);
+                //intent.putExtra("data","data");
+                startActivityForResult(intent, 99);
             }
         });
 
@@ -72,5 +73,18 @@ public class MainActivity extends AppCompatActivity {
                 adapter.removeItem(0);
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 99){
+            if(resultCode == 88){
+                Bundle bundle = data.getExtras();
+                String back = bundle.getString("back");
+                Toast.makeText(MainActivity.this,back,Toast.LENGTH_SHORT).show();
+                adapter.addItem(back);
+            }
+        }
     }
 }
