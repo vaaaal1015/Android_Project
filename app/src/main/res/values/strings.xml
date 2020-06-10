@@ -3,10 +3,15 @@
     <string name="btn_start">Start</string>
     <string name="btn_skip">Skip</string>
     <string name="btn_new">New</string>
+    <string name="btn_finish">FINISH</string>
     <string name="part1">胸部肌群</string>
     <string name="part2">背部肌群</string>
     <string name="part3">腿部肌群</string>
     <string name="part4">肩部肌群</string>
     <string name="part5">腹部肌群</string>
     <string name="part6">有氧訓練</string>
+    <string name="chest_upper">上胸訓練</string>
+    <string name="chest_flat">平胸訓練</string>
+    <string name="chest_lower">下胸訓練</string>
+    <string name="chest_tri">三頭肌訓練</string>
 </resources>

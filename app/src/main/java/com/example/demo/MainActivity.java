@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<String> mData = new ArrayList<>();
     private Button btn_new;
     private Button btn_skip;
+    private Button btn_start;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -71,6 +72,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 adapter.addItemOnLast(mData.get(0));
                 adapter.removeItem(0);
+            }
+        });
+
+        btn_start = (Button) findViewById(R.id.btn_start);
+        btn_start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ChestActivity.class);
+                startActivity(intent);
             }
         });
     }
