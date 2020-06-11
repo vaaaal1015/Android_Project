@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         mData.add("腿部肌群");
         mData.add("肩部肌群");
         mData.add("腹部肌群");
-        mData.add("有氧訓練:慢跑");
+        mData.add("有氧訓練");
         //mData.add("雞雞");
 
 
@@ -79,8 +79,13 @@ public class MainActivity extends AppCompatActivity {
         btn_start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ChestActivity.class);
-                startActivity(intent);
+                Intent intent;
+                if(mData.get(0).equals(getString(R.string.part1))) {
+                    intent = new Intent(MainActivity.this, ChestActivity.class);
+                    startActivity(intent);
+                    adapter.addItemOnLast(mData.get(0));
+                    adapter.removeItem(0);
+                }
             }
         });
     }
@@ -93,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                 Bundle bundle = data.getExtras();
                 String back = bundle.getString("back");
                 Toast.makeText(MainActivity.this,back,Toast.LENGTH_SHORT).show();
-                adapter.addItem(back);
+                adapter.addItemOnLast(back);
             }
         }
     }
