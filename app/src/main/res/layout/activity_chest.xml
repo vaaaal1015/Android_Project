@@ -22,7 +22,7 @@
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            app:srcCompat="@drawable/chest" />
+            app:srcCompat="@drawable/core" />
 
         <CheckBox
             android:id="@+id/checkBox_upper"
