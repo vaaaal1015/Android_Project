@@ -129,23 +129,10 @@ public class MainActivity extends AppCompatActivity {
             if(resultCode == 88){
                 Bundle bundle = data.getExtras();
                 String back = bundle.getString("back");
-                Toast.makeText(MainActivity.this,back,Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "已新增 " + back + "訓練",Toast.LENGTH_SHORT).show();
                 adapter.addItemOnLast(back);
             }
         }
-    }
-
-    private void changeData() {
-        Set set = null;
-        SharedPreferences userList = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
-        SharedPreferences.Editor editor = userList.edit();
-
-        for(int i=0; i < mData.size(); i++) {
-            set.add(mData.get(i));
-        }
-        Log.d("TAG", String.valueOf(set));
-        editor.putStringSet("list", set);
-        editor.commit();
     }
 
     @Override
