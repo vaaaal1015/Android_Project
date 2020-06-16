@@ -7,14 +7,19 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ShareActionProvider;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btn_new;
     private Button btn_skip;
     private Button btn_start;
+    private static final String PREFS_NAME = "LIST";
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -31,15 +37,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        mData.add(getString(R.string.part1));
-        mData.add(getString(R.string.part2));
-        mData.add(getString(R.string.part3));
-        mData.add(getString(R.string.part4));
-        mData.add(getString(R.string.part5));
-        mData.add(getString(R.string.part6));
-        //mData.add("雞雞");
-
+        SharedPreferences userList = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        int size = userList.getInt("size", 0);
+        for(int i = 0; i < size; i++) {
+            mData.add(userList.getString(String.valueOf(i), ""));
+        }
 
         // 連結元件
         recycler_view = (RecyclerView) findViewById(R.id.recycler_view);
@@ -86,43 +88,36 @@ public class MainActivity extends AppCompatActivity {
                     adapter.addItemOnLast(mData.get(0));
                     adapter.removeItem(0);
                 }
-
                 else if(mData.get(0).equals(getString(R.string.part2))) {
                     intent = new Intent(MainActivity.this, BackActivity.class);
                     startActivity(intent);
                     adapter.addItemOnLast(mData.get(0));
                     adapter.removeItem(0);
                 }
-
                 else if(mData.get(0).equals(getString(R.string.part3))) {
                     intent = new Intent(MainActivity.this, LegActivity.class);
                     startActivity(intent);
                     adapter.addItemOnLast(mData.get(0));
                     adapter.removeItem(0);
                 }
-
                 else if(mData.get(0).equals(getString(R.string.part4))) {
                     intent = new Intent(MainActivity.this, ShoulderActivity.class);
                     startActivity(intent);
                     adapter.addItemOnLast(mData.get(0));
                     adapter.removeItem(0);
                 }
-
                 else if(mData.get(0).equals(getString(R.string.part5))) {
                     intent = new Intent(MainActivity.this, CoreActivity.class);
                     startActivity(intent);
                     adapter.addItemOnLast(mData.get(0));
                     adapter.removeItem(0);
                 }
-
                 else if(mData.get(0).equals(getString(R.string.part6))){
                     intent = new Intent(MainActivity.this, RunActivity.class);
                     startActivity(intent);
                     adapter.addItemOnLast(mData.get(0));
                     adapter.removeItem(0);
                 }
-
-
             }
         });
     }
@@ -138,5 +133,33 @@ public class MainActivity extends AppCompatActivity {
                 adapter.addItemOnLast(back);
             }
         }
+    }
+
+    private void changeData() {
+        Set set = null;
+        SharedPreferences userList = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        SharedPreferences.Editor editor = userList.edit();
+
+        for(int i=0; i < mData.size(); i++) {
+            set.add(mData.get(i));
+        }
+        Log.d("TAG", String.valueOf(set));
+        editor.putStringSet("list", set);
+        editor.commit();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        SharedPreferences userList = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        SharedPreferences.Editor editor = userList.edit();
+        editor.clear();
+
+        editor.putInt("size", mData.size());
+
+        for(int i=0; i < mData.size(); i++) {
+            editor.putString(String.valueOf(i), mData.get(i));
+        }
+        editor.commit();
     }
 }
