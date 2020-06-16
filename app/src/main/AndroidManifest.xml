@@ -9,7 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ChestActivity"></activity>
+        <activity android:name=".RunActivity"></activity>
+        <activity android:name=".CoreActivity" />
+        <activity android:name=".ShoulderActivity" />
+        <activity android:name=".LegActivity" />
+        <activity android:name=".BackActivity" />
+        <activity android:name=".ChestActivity" />
         <activity android:name=".ExerciseActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

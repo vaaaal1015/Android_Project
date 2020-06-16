@@ -32,12 +32,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        mData.add("胸部肌群");
-        mData.add("背部肌群");
-        mData.add("腿部肌群");
-        mData.add("肩部肌群");
-        mData.add("腹部肌群");
-        mData.add("有氧訓練");
+        mData.add(getString(R.string.part1));
+        mData.add(getString(R.string.part2));
+        mData.add(getString(R.string.part3));
+        mData.add(getString(R.string.part4));
+        mData.add(getString(R.string.part5));
+        mData.add(getString(R.string.part6));
         //mData.add("雞雞");
 
 
@@ -86,6 +86,43 @@ public class MainActivity extends AppCompatActivity {
                     adapter.addItemOnLast(mData.get(0));
                     adapter.removeItem(0);
                 }
+
+                else if(mData.get(0).equals(getString(R.string.part2))) {
+                    intent = new Intent(MainActivity.this, BackActivity.class);
+                    startActivity(intent);
+                    adapter.addItemOnLast(mData.get(0));
+                    adapter.removeItem(0);
+                }
+
+                else if(mData.get(0).equals(getString(R.string.part3))) {
+                    intent = new Intent(MainActivity.this, LegActivity.class);
+                    startActivity(intent);
+                    adapter.addItemOnLast(mData.get(0));
+                    adapter.removeItem(0);
+                }
+
+                else if(mData.get(0).equals(getString(R.string.part4))) {
+                    intent = new Intent(MainActivity.this, ShoulderActivity.class);
+                    startActivity(intent);
+                    adapter.addItemOnLast(mData.get(0));
+                    adapter.removeItem(0);
+                }
+
+                else if(mData.get(0).equals(getString(R.string.part5))) {
+                    intent = new Intent(MainActivity.this, CoreActivity.class);
+                    startActivity(intent);
+                    adapter.addItemOnLast(mData.get(0));
+                    adapter.removeItem(0);
+                }
+
+                else if(mData.get(0).equals(getString(R.string.part6))){
+                    intent = new Intent(MainActivity.this, RunActivity.class);
+                    startActivity(intent);
+                    adapter.addItemOnLast(mData.get(0));
+                    adapter.removeItem(0);
+                }
+
+
             }
         });
     }

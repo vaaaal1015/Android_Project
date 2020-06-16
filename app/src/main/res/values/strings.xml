@@ -18,20 +18,18 @@
     <string name="back_second">背闊肌訓練</string>
     <string name="back_third">大圓肌訓練</string>
     <string name="back_bisc">二頭肌訓練</string>
-    <string name="shoulder_first">前三角訓練</string>
-    <string name="shoulder_second">中三角訓練</string>
-    <string name="shoulder_third">後三角訓練</string>
-    <string name="shoulder_fore">前臂訓練</string>
     <string name="leg_first">股四頭肌訓練</string>
     <string name="leg_second">股二頭肌訓練</string>
     <string name="leg_third">臀大肌訓練</string>
     <string name="leg_forth">小腿肌訓練</string>
+    <string name="shoulder_first">前三角訓練</string>
+    <string name="shoulder_second">中三角訓練</string>
+    <string name="shoulder_third">後三角訓練</string>
+    <string name="shoulder_forth">前臂訓練</string>
     <string name="core_first">上腹直肌訓練</string>
     <string name="core_second">下腹直肌訓練</string>
     <string name="core_third">腹斜肌訓練</string>
     <string name="core_forth">豎脊肌訓練</string>
-    <string name="aero_first">有氧訓練</string>
-
-
+    <string name="run_first">有氧訓練</string>
 
 </resources>
