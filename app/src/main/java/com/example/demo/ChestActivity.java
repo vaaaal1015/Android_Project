@@ -61,13 +61,13 @@ public class ChestActivity extends AppCompatActivity {
                 {
                     if(checkBox1.isChecked() && checkBox2.isChecked() && checkBox3.isChecked() && checkBox4.isChecked()) {
                         btn_finish.setVisibility(View.VISIBLE);
-                        textView.setVisibility(View.INVISIBLE);
-                        label.setVisibility(View.INVISIBLE);
+                        textView.setVisibility(View.VISIBLE);
+                        label.setVisibility(View.VISIBLE);
                     }
                     else {
                         btn_finish.setVisibility(View.INVISIBLE);
-                        textView.setVisibility(View.VISIBLE);
-                        label.setVisibility(View.VISIBLE);
+                        textView.setVisibility(View.INVISIBLE);
+                        label.setVisibility(View.INVISIBLE);
                     }
                 }
             };
