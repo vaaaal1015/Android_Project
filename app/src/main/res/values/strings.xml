@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">demo</string>
+    <string name="app_name">健身小助手</string>
     <string name="btn_start">Start</string>
     <string name="btn_skip">Skip</string>
     <string name="btn_new">New</string>
@@ -31,5 +31,10 @@
     <string name="core_third">腹斜肌訓練</string>
     <string name="core_forth">豎脊肌訓練</string>
     <string name="run_first">有氧訓練</string>
+    <string name="height">輸入身高:</string>
+    <string name="weight">輸入體重:</string>
+    <string name="bmi">BMI</string>
+    <string name="date">輸入日期:</string>
+
 
 </resources>

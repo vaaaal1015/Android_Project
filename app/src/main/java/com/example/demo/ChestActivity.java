@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -19,11 +20,18 @@ public class ChestActivity extends AppCompatActivity {
     private CheckBox checkBox3;
     private CheckBox checkBox4;
     private Button btn_finish;
+    private TextView textView;
+    private TextView label;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chest);
+
+        textView = (TextView)findViewById(R.id.editTextNumber);
+        label = (TextView)findViewById(R.id.textView);
+        textView.setVisibility(View.INVISIBLE);
+        label.setVisibility(View.INVISIBLE);
 
         checkBox1 = (CheckBox)findViewById(R.id.checkBox_upper);
         checkBox2 = (CheckBox)findViewById(R.id.checkBox_flat);
@@ -53,11 +61,13 @@ public class ChestActivity extends AppCompatActivity {
                 {
                     if(checkBox1.isChecked() && checkBox2.isChecked() && checkBox3.isChecked() && checkBox4.isChecked()) {
                         btn_finish.setVisibility(View.VISIBLE);
-                        Log.d("btn_finish", "VISIBLE");
+                        textView.setVisibility(View.INVISIBLE);
+                        label.setVisibility(View.INVISIBLE);
                     }
                     else {
                         btn_finish.setVisibility(View.INVISIBLE);
-                        Log.d("btn_finish", "INVISIBLE");
+                        textView.setVisibility(View.VISIBLE);
+                        label.setVisibility(View.VISIBLE);
                     }
                 }
             };
