@@ -4,6 +4,8 @@
     <string name="btn_skip">Skip</string>
     <string name="btn_new">New</string>
     <string name="btn_finish">FINISH</string>
+    <string name="btn_chart">Track</string>
+    <string name="btn_back">Back</string>
     <string name="part1">胸部肌群</string>
     <string name="part2">背部肌群</string>
     <string name="part3">腿部肌群</string>
@@ -31,10 +33,7 @@
     <string name="core_third">腹斜肌訓練</string>
     <string name="core_forth">豎脊肌訓練</string>
     <string name="run_first">有氧訓練</string>
-    <string name="height">輸入身高:</string>
     <string name="weight">輸入體重:</string>
-    <string name="bmi">BMI</string>
-    <string name="date">輸入日期:</string>
 
 
 </resources>

@@ -1,14 +1,27 @@
 package com.example.demo;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class BackActivity extends AppCompatActivity {
 
@@ -20,6 +33,7 @@ public class BackActivity extends AppCompatActivity {
     //
     private TextView textView;
     private TextView label;
+    private static final String TAG = "firebase";
     //
 
     @Override
@@ -46,6 +60,25 @@ public class BackActivity extends AppCompatActivity {
         btn_finish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FirebaseFirestore db = FirebaseFirestore.getInstance();
+                Calendar mCal = Calendar.getInstance();
+                String dateformat = "yyyyMMdd";
+                SimpleDateFormat df = new SimpleDateFormat(dateformat);
+                String today = df.format(mCal.getTime());
+
+                // Create a new user with a first and last name
+                Map<String, Object> data = new HashMap<>();
+                data.put("date", Integer.valueOf(today));
+                //data.put("date", mCal.getTimeInMillis());
+                if (textView.getText().toString().equals("")) {
+                    data.put("weight", 0);
+                }
+                else {
+                    data.put("weight", Integer.valueOf(textView.getText().toString()));
+                }
+                // Add a new document with a generated ID
+                db.collection("weight").document(today).set(data);
+
                 finish();
             }
         });

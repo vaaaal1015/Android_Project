@@ -11,7 +11,13 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ChestActivity extends AppCompatActivity {
 
@@ -47,6 +53,24 @@ public class ChestActivity extends AppCompatActivity {
         btn_finish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FirebaseFirestore db = FirebaseFirestore.getInstance();
+                Calendar mCal = Calendar.getInstance();
+                String dateformat = "yyyyMMdd";
+                SimpleDateFormat df = new SimpleDateFormat(dateformat);
+                String today = df.format(mCal.getTime());
+
+                // Create a new user with a first and last name
+                Map<String, Object> data = new HashMap<>();
+                data.put("date", Integer.valueOf(today));
+                //data.put("date", mCal.getTimeInMillis());
+                if (textView.getText().toString().equals("")) {
+                    data.put("weight", 0);
+                }
+                else {
+                    data.put("weight", Integer.valueOf(textView.getText().toString()));
+                }
+                // Add a new document with a generated ID
+                db.collection("weight").document(today).set(data);
                 finish();
             }
         });

@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btn_new;
     private Button btn_skip;
     private Button btn_start;
+    private Button btn_chart;
     private static final String PREFS_NAME = "LIST";
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -77,6 +78,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btn_chart = (Button)findViewById(R.id.btn_chart);
+        btn_chart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, LineChartActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
         btn_start = (Button) findViewById(R.id.btn_start);
         btn_start.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,10 +100,12 @@ public class MainActivity extends AppCompatActivity {
                     adapter.removeItem(0);
                 }
                 else if(mData.get(0).equals(getString(R.string.part2))) {
+
                     intent = new Intent(MainActivity.this, BackActivity.class);
                     startActivity(intent);
                     adapter.addItemOnLast(mData.get(0));
                     adapter.removeItem(0);
+
                 }
                 else if(mData.get(0).equals(getString(R.string.part3))) {
                     intent = new Intent(MainActivity.this, LegActivity.class);
