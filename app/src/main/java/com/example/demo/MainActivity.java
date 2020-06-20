@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 adapter.addItemOnLast(mData.get(0));
                 adapter.removeItem(0);
+
             }
         });
 
